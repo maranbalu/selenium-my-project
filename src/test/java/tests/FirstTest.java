@@ -21,12 +21,14 @@ public class FirstTest extends Tests{
         ChromeOptions chromeOptions = new ChromeOptions();
         //WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.224:4444"), chromeOptions);
 
+        //WebDriver initiation:
         WebDriver driver = new ChromeDriver(chromeOptions);
         CustomWebDriverListener eventListener = new CustomWebDriverListener();
         EventFiringDecorator<WebDriver> decorator = new EventFiringDecorator<>(eventListener);
         WebDriver webDriver = decorator.decorate(driver);
-
         WebDriverRunner.setWebDriver(webDriver);
+
+        //Actual test begins here:
         open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         $(By.name("username")).setValue("Admin");
         $(By.name("password")).setValue("admin123");
