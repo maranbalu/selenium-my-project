@@ -7,9 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
+import java.net.URL;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
@@ -19,10 +21,10 @@ public class FirstTest extends Tests{
     @Test
     public void testOne() throws MalformedURLException {
         ChromeOptions chromeOptions = new ChromeOptions();
-        //WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.224:4444"), chromeOptions);
+        WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.224:4444"), chromeOptions);
 
         //WebDriver set-up:
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        //WebDriver driver = new ChromeDriver(chromeOptions);
         CustomWebDriverListener eventListener = new CustomWebDriverListener();
         EventFiringDecorator<WebDriver> decorator = new EventFiringDecorator<>(eventListener);
         WebDriver webDriver = decorator.decorate(driver);
