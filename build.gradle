@@ -10,12 +10,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.testng:testng:7.9.0'
+    implementation 'org.testng:testng:7.9.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.17.0'
     implementation 'com.codeborne:selenide:7.1.0'
 
 }
 
 test {
-    useTestNG()
+    useTestNG(){
+        //listeners << 'listeners.CustomTestListener'
+    }
 }
