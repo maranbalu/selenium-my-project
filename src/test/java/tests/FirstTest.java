@@ -21,7 +21,7 @@ public class FirstTest extends Tests{
         ChromeOptions chromeOptions = new ChromeOptions();
         //WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.224:4444"), chromeOptions);
 
-        //WebDriver initiation:
+        //WebDriver set-up:
         WebDriver driver = new ChromeDriver(chromeOptions);
         CustomWebDriverListener eventListener = new CustomWebDriverListener();
         EventFiringDecorator<WebDriver> decorator = new EventFiringDecorator<>(eventListener);
